@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Selector for all HTML document: */
+:root {
+  --blue: #071353;
+  --white: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--blue);
+}
+
+nav {
+  position: relative;
+}
+
+ul {
+  display: flex;
+  background-color: var(--white);
+  padding: 0 55px;
+  gap: 40px;
+  border-radius: 20px;
+}
+
+li {
+  list-style: none;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  list-style: none;
+  z-index: 100;
+}
+
+a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.icon {
+  margin: auto;
+  font-size: 4em;
+  transition: 0.5s;
+  color: var(--blue);
+}
+
+li.active a .icon {
+  transform: translateY(-90px);
+}
+
+li a .text {
+  color: var(--blue);
+  font-weight: 500;
+  font-size: 1.5em;
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(150px);
+}
+
+li.active a .text {
+  opacity: 1;
+  transform: translateY(50px);
+}
+
+.indicator {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  top: -50%;
+  border-radius: 50%;
+  border: solid 15px var(--blue);
+  transition: 0.5s;
+}
+
+.indicator spam {
+  width: 100px;
+  height: 100px;
+}
+
+.indicator::before {
+  content: "";
+  width: 45px;
+  height: 45px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: -53px;
+  border-top-right-radius: 70px;
+  box-shadow: 0 -20px 0 0 var(--blue);
+}
+
+.indicator::after {
+  content: "";
+  width: 45px;
+  height: 45px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  right: -53px;
+  border-top-left-radius: 70px;
+  box-shadow: 0 -20px 0 0 var(--blue);
+}
+
+li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(240px * 0));
+}
+
+li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(240px * 1));
+}
+
+li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(240px * 2));
+}
+
+li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(240px * 3));
+}
+
+li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(240px * 4));
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Visual Effects with CSS</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="list-item prueba">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="home-outline"></ion-icon
+              ></span>
+              <span class="text">Dynamic Menu</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="color-wand-outline"></ion-icon
+              ></span>
+              <span class="text">Broken Glass</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="calculator-outline"></ion-icon
+              ></span>
+              <span class="text">Calculator</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="beer-outline"></ion-icon
+              ></span>
+              <span class="text">Store Items</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="rocket-outline"></ion-icon
+              ></span>
+              <span class="text">Fantastic Buttons</span>
+            </a>
+          </li>
+          <div class="indicator"></div>
+        </ul>
+      </nav>
+    </header>
+    <script>
+      const itemsList = document.getElementsByTagName("li");
+      const itemsListArray = [...Array.from(itemsList)];
+
+      const addActiveClass = (item) => {
+        item.classList.add("active");
+      };
+
+      const removeActiveClassForAll = () => {
+        itemsListArray.forEach((item) => item.classList.remove("active"));
+      };
+
+      const handleClick = (item) => {
+        removeActiveClassForAll();
+        addActiveClass(item);
+      };
+
+      itemsListArray.forEach((item) =>
+        item.addEventListener("click", () => handleClick(item))
+      );
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
